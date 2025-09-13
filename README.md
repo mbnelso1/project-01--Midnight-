@@ -1,5 +1,4 @@
 # project-01--Midnight-
-# project-01--midnight-theater-
 # The Midnight Theater 
 
 Live demo: https://mbnelso1.github.io/csci4208-portfolio-2025/
