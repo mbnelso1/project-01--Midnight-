@@ -1,0 +1,129 @@
+
+body {
+  background-color: rgb(11, 11, 18);
+  color: white;
+  font-family: Arial;
+  margin: 20px;
+  padding: 0;
+}
+h1, h2, h3, h4 {
+  font-family: Arial;
+  color: white;
+}
+p { font-size: 16px; }
+
+
+.outline {
+  outline-width: 3px;
+  outline-style: dashed;
+  outline-color: red;
+}
+.border {
+  border-width: 3px;
+  border-style: solid;
+  border-color: blue;
+}
+.padding { padding: 20px; }
+.margin  { margin: 20px; }
+
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+
+img.shrink-to-viewport {
+  max-width: 100%;
+  max-height: 100%;
+}
+img.force-full-viewport {
+  width: 100%;
+  height: 100%;
+}
+
+
+.background-image {
+  background-image: url('game/assets/bg-image.jpg'); /* adjust path if needed */
+}
+.background-image-without-repeat {
+  background-image: url('game/assets/bg-image.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.background-image-fixed {
+  background-image: url('game/assets/bg-image.jpg');
+  background-attachment: fixed;
+}
+.background-gradient {
+  background-image: linear-gradient(red, yellow);
+}
+
+
+a { text-decoration: none; }
+a:hover { color: red; }
+
+button:hover { background-color: red; }
+
+ul {
+  list-style-image: url('game/assets/list-item-image.png');
+  list-style-position: inside;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  text-align: center;
+  padding: 5px;
+}
+tr:nth-child(even){ background-color: white; }
+tr:nth-child(odd) { background-color: silver; }
+th { background-color: green; color: white; }
+
+.center  { display: flex; justify-content: center; }
+.left    { display: flex; justify-content: flex-start; }
+.right   { display: flex; justify-content: flex-end; }
+.justify-space-between { display: flex; justify-content: space-between; }
+.justify-space-around  { display: flex; justify-content: space-around; }
+.justify-space-evenly  { display: flex; justify-content: space-evenly; }
+
+
+.grid-1col { display: grid; grid-template-columns: repeat(1, 1fr); grid-template-rows: auto; justify-items: center; }
+.grid-2col { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; justify-items: center; }
+.grid-3col { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; justify-items: center; }
+
+
+hr { border-width: 3px; border-style: solid; border-color: blue; }
+
+button {
+  background-color: black;
+  color: white;
+  border-width: 3px;
+  border-style: solid;
+  border-color: blue;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+
+#iframe, #inventory {
+  width: 200px;
+  height: 120px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: blue;
+  margin: 10px;
+}
+
+
+body { text-align: center; }        /* center text and inline content */
+img, iframe, table {                /* center common blocks */
+  display: block;
+  margin: 0 auto;
+}
+button, a.button {                  /* center buttons/links when block-level */
+  display: block;
+  margin: 10px auto;
+}

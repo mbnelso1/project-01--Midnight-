@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title> The Midnight Theater </title>
+		<link rel="icon" href="assets/clock.png" />
+		<link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+	<h1>The Midnight Theater presenting The Lion</h1>
+	<h3>Once inside the theater you sit and the movie begins playing. You begin to feel as if you are being sucked into the screen. </h3>
+	<hr>
+	<img src='assets/hypnotic.png' width="480" />
+	
+	<p> You are suddenly in a dark forest.  </p>
+
+	<img src='assets/path-woods.gif' width="480" />
+
+	<p> You take a second to familiarize yourself with this unsettling environment. You notice a cabin on the horizon burried within the trees. </p>
+	<img src='assets/cabin.png' width="480" />
+	<p> In the distance, you hear faint but distinct sounds of screaming. You can either:</p>
+		<p>
+  <a href="ticketkiosk.html"><button>Hide in the cabin</button></a>
+  <a href="lion2.html"><button>Follow the screaming</button></a>
+</p>
+
+
+	<hr>
+	<iframe src='inventory.html' id=inventory height=100 width=125></iframe>
+	
+<script>
+	// read current ?gp/?hp/?ap
+	const qs = new URLSearchParams(location.search);
+
+	// keep your tokens when you click
+	document.querySelectorAll('a[href]').forEach(a => { a.href += location.search; });
+
+	// show the same tokens in the inventory iframe
+	const frame = document.getElementById('inventory');
+	if (frame) frame.src += location.search;
+</script>
+
+
+</body>
+</html>

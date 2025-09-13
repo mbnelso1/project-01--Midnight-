@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>The Midnight Theater</title>
+  <link rel="icon" href="assets/clock.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Story Introduction</h1>
+  <p>“You see, doing one thing differently is very often the same as doing everything differently.” — Matt Haig, The Midnight Library</p>
+  <img src="assets/midnightlibrary.jpeg" width="360" alt="The Midnight Library cover">
+  <p>After a few life setbacks, you find yourself questioning your abilities... Your friend recommends a book titled the Midnight Library.</p>
+  <hr>
+  <img src="assets/bedroom.gif" width="360" alt="Stormy night bedroom scene">
+  <p>It is a dark stormy winter night. Perfect conditions to read yourself to sleep. As the clock ticks closer to midnight you drift into a deep slumber.</p>
+  <h4><a href="ticketkioskintro.html">Fall Asleep</a></h4>
+
+<script>
+  // read current ?gp/?hp/?ap
+  const qs = new URLSearchParams(location.search);
+
+  // keep your tokens when you click
+  document.querySelectorAll('a[href]').forEach(a => { a.href += location.search; });
+
+  // show the same tokens in the inventory iframe
+  const frame = document.getElementById('inventory');
+  if (frame) frame.src += location.search;
+</script>
+
+</body>
+</html>

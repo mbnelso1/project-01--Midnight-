@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>The Midnight Theater</title>
+  <link rel="icon" href="assets/clock.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>The Midnight Theater presenting The Lion</h1>
+  <h3>You have decided to treck on... how brave!</h3>
+  <hr>
+
+  <img src="assets/path-woods.gif" width="480" alt="Walking a path through dark woods" />
+
+  <p>As you trace the increasingly louder screams, you find yourself staring at the entrance of a maze.</p>
+  <img src="assets/maze.png" width="480" alt="Entrance to a maze" />
+  <p>You ponder entering the maze or turning around. You decide to:</p>
+
+  <p>
+    <a href="lion3.html"><button>Turn around</button></a>
+    <a href="lion3.html"><button>Enter the maze</button></a>
+  </p>
+
+  <p>You have proven your bravery, earning the legendary golden sword, previously wielded by The Great Bert Lahr.</p>
+
+  <a href="ticketkiosk.html"><button>Click your heels</button></a>
+  <hr>
+
+  <iframe src="inventory.html" id="inventory" height="100" width="160"></iframe>
+
+<script>
+  // read current ?gp/?hp/?ap
+  const qs = new URLSearchParams(location.search);
+
+  // award once and mark it so it doesn't happen twice
+  if (qs.get('awarded_sword') !== '1') {
+    const ap = +(qs.get('ap')||0) + 1;
+    qs.set('ap', String(ap));
+    qs.set('awarded_sword', '1');
+    location.search = qs.toString(); // reload with the updated tokens
+  }
+
+  // keep your tokens when you click
+  document.querySelectorAll('a[href]').forEach(a => { a.href += location.search; });
+
+  // show the same tokens in the inventory iframe
+  const frame = document.getElementById('inventory');
+  if (frame) frame.src += location.search;
+</script>
+
+</body>
+</html>

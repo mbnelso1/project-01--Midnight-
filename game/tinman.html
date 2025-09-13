@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title> The Midnight Theater </title>
+		<link rel="icon" href="assets/clock.png" />
+		<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<h1>The Midnight Theater presenting The Tin Man</h1>
+	<h3>Once inside the theater you sit and the movie begins playing. You begin to feel as if you are being sucked into the screen. </h3>
+	<hr>
+	<img src='assets/hypnotic.png' width="480" />
+	
+	<p> You are suddenly in mall parking lot.  </p>
+
+	<img src='assets/malllot.png' width="480" />
+
+	<p> As you are standing up, a women frantically approaches you. </p>
+	<h3> I can not find my wallet... please help.</h3>
+	<p> What do you do?</p>
+	
+
+	<p>
+  <a href="ticketkiosk.html"><button>Look for the next token.</button></a>
+  <a href="tinman2.html">
+		<button> Help the women</button></a>
+</p>
+	
+	<hr>
+	<iframe src='inventory.html' id=inventory height=100 width=125></iframe>
+
+<script>
+	// read current ?gp/?hp/?ap
+	const qs = new URLSearchParams(location.search);
+
+	// keep your tokens when you click
+	document.querySelectorAll('a[href]').forEach(a => { a.href += location.search; });
+
+	// show the same tokens in the inventory iframe
+	const frame = document.getElementById('inventory');
+	if (frame) frame.src += location.search;
+</script>
+
+
+</body>
+</html>

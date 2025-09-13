@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>The Midnight Theater</title>
+  <link rel="icon" href="assets/clock.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>The Midnight Theater presenting The Tin Man</h1>
+  <h3>You have decided help the women... how kind!</h3>
+  <hr>
+
+  <img src="assets/malllot.gif" width="480" alt="Walking through a large mall parking lot" />
+
+  <p>After what feels like hours of aimlessly walking through this never ending lot, something catches your attention under a parked vehicle.</p>
+  <img src="assets/lostwallet.png" width="480" alt="Wallet under a car" />
+
+  <p>You pick up the wallet and notice it is full of cash... do you?</p>
+  <p>
+    <a href="tinman3.html"><button>Take the wallet</button></a>
+    <a href="tinman3.html"><button>Return the wallet</button></a>
+  </p>
+
+  <p>The women is so touch by your kindness, she reaches into her pocket and hands you a silver heart pendant.</p>
+
+   <a href="ticketkiosk.html"><button>Click your heels</button></a>
+  <hr>
+
+  <iframe src="inventory.html" id="inventory" height="100" width="160"></iframe>
+
+<script>
+  // read current ?gp/?hp/?ap
+  const qs = new URLSearchParams(location.search);
+
+  // award once and mark it so it doesn't happen twice
+  if (qs.get('awarded_heart') !== '1') {
+    const hp = +(qs.get('hp')||0) + 1;
+    qs.set('hp', String(hp));
+    qs.set('awarded_heart','1');
+    location.search = qs.toString(); // reload with the updated tokens
+  }
+
+  // keep your tokens when you click
+  document.querySelectorAll('a[href]').forEach(a => { a.href += location.search; });
+
+  // show the same tokens in the inventory iframe
+  const frame = document.getElementById('inventory');
+  if (frame) frame.src += location.search;
+</script>
+
+</body>
+</html>

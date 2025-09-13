@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title> The Midnight Theater </title>
+		<link rel="icon" href="assets/clock.png" />
+		<link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+	<h1>The Midnight Theater presenting The Scarecrow</h1>
+	
+	
+	<p> You are two for three! Impressive! </p>
+
+	<img src='assets/trivia.png' width="480" />
+
+	<p> The final question is asked... </p>
+	<h3>A queue is a data structure with what type of order?</h3>
+	
+		
+
+	<p>
+  <a href="scarecrow4.html">
+		<button> FIFO  </button></a>
+  <a href="ticketkiosk.html">
+		<button> LIFO </button></a>
+</p>
+	
+	<hr>
+	<iframe src='inventory.html' id=inventory height=100 width=125></iframe>
+	
+<script>
+	// read current ?gp/?hp/?ap
+	const qs = new URLSearchParams(location.search);
+
+	// keep your tokens when you click
+	document.querySelectorAll('a[href]').forEach(a => { a.href += location.search; });
+
+	// show the same tokens in the inventory iframe
+	const frame = document.getElementById('inventory');
+	if (frame) frame.src += location.search;
+</script>
+
+
+</body>
+</html>

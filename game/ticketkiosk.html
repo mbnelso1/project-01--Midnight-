@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>The Midnight Theater</title>
+  <link rel="icon" href="assets/clock.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>The Midnight Theater</h1>
+  <hr />
+  <img src="assets/ticketkiosk.png" width="480" alt="Ticket kiosk" />
+  <h4>"Back so soon...did you succeed or fail? Trick question! In failure you learn which is a success in itself. What showing?" - ticket agent</h4>
+
+  <p>Remember, once inside the theater, you can only exit by finding a specific but unknown object, and clicking your heels.</p>
+  <ul>
+    <li><a id="The Lion" href="lion.html">The Lion</a></li>
+    <li><a id="The Scarecrow" href="scarecrow.html">The Scarecrow</a></li>
+    <li><a id="The Tin Man" href="tinman.html">The Tin Man</a></li>
+  </ul>
+
+  <p id="final-wrap" style="display:none">
+  <a id="final-link" href="final.html"><button>Finish the Journey</button></a>
+	</p>
+
+  <hr />
+
+  <iframe src="inventory.html" id="inventory" height="100" width="160"></iframe>
+
+<script>
+	// read current ?gp/?hp/?ap
+	const qs = new URLSearchParams(location.search);
+	const gp = +(qs.get('gp') || 0);
+	const hp = +(qs.get('hp') || 0);
+	const ap = +(qs.get('ap') || 0);
+
+	// show the Final button only when you have all tokens
+	const wrap = document.getElementById('final-wrap');
+	if (wrap) {
+	  wrap.style.display = (gp >= 1 && hp >= 1 && ap >= 1) ? 'block' : 'none';
+	}
+
+	// keep your tokens when you click (append query to every link)
+	document.querySelectorAll('a[href]').forEach(a => {
+	  // Build a clean URL so we don't double-append
+	  const u = new URL(a.getAttribute('href'), location.href);
+	  qs.forEach((v, k) => u.searchParams.set(k, v));  // carry over tokens
+	  a.href = `${u.pathname}?${u.searchParams.toString()}`;
+	});
+
+	// show the same tokens in the inventory iframe
+	const frame = document.getElementById('inventory');
+	if (frame) {
+	  const base = frame.src.split('?')[0];
+	  frame.src = `${base}?${qs.toString()}`;
+	}
+</script>
+
+
+
+
+</body>
+</html>

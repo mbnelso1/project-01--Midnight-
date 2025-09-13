@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>The Midnight Theater</title>
+  <link rel="icon" href="game/assets/clock.png" />
+  <link rel="stylesheet" href="game/style.css" />
+</head>
+<body>
+  <h1>The Midnight Theater</h1>
+  <hr>
+  <p>You are capable of greatness... you just have to decide to achieve it.</p>
+  <img src="game/assets/index-gif.gif" width="480" alt="Midnight Theater animated intro">
+  <p>
+    <a href="game/intro.html"><button>Enter</button></a>
+  </p>
+  <hr>
+  <h4>Story inspired by The Midnight Library by Matt Haig & The Wonderful Wizard of Oz by L. Frank Baum</h4>
+  <h4>Game by Melita Nelson</h4>
+
+
+<script>
+  // read current ?gp/?hp/?ap
+  const qs = new URLSearchParams(location.search);
+
+  // start with zeros once (simple seed)
+  if (![...qs.keys()].length) {
+    qs.set('gp','0'); qs.set('hp','0'); qs.set('ap','0');
+    location.search = qs.toString(); // reload with tokens in the URL
+  }
+
+  // keep your tokens when you click (copy to every link)
+  document.querySelectorAll('a[href]').forEach(a => { a.href += location.search; });
+
+  // show the same tokens in the inventory iframe
+  const frame = document.getElementById('inventory');
+  if (frame) frame.src += location.search;
+
+
+</script>
+</body>
+</html>

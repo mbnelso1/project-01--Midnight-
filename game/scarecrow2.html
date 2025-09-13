@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title> The Midnight Theater </title>
+		<link rel="icon" href="assets/clock.png" />
+		<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<h1>The Midnight Theater presenting The Scarecrow</h1>
+	
+	
+	<p> You are one for three. Luckily you pay attention in your classes... </p>
+
+	<img src='assets/trivia.png' width="480" />
+
+	<p> The second question is asked... </p>
+	<h3>CSS is a ____ styling language</h3>
+	
+		
+
+	<p>
+  <a href="scarecrow3.html"><button> Imperative </button></a>
+  <a href="ticketkiosk.html"><button> Declaritive</button></a>
+</p>
+	
+	<hr>
+	<iframe src='inventory.html' id=inventory height=100 width=125></iframe>
+
+<script>
+	// read current ?gp/?hp/?ap
+	const qs = new URLSearchParams(location.search);
+
+	// keep your tokens when you click
+	document.querySelectorAll('a[href]').forEach(a => { a.href += location.search; });
+
+	// show the same tokens in the inventory iframe
+	const frame = document.getElementById('inventory');
+	if (frame) frame.src += location.search;
+</script>
+
+
+</body>
+</html>

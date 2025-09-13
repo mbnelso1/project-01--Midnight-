@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>The Midnight Theater</title>
+  <link rel="icon" href="assets/clock.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>The Midnight Theater presenting The Scarecrow</h1>
+
+  <p>You are two for three! Impressive!</p>
+
+  <img src="assets/trivia.png" width="480" alt="Trivia screen" />
+
+  <p>The final question is asked...</p>
+  <h3>A queue is a data structure with what type of order?</h3>
+
+  <p>
+    <a href="scarecrow4.html"><button>FIFO</button></a>
+    <a href="scarecrow4.html"><button>LIFO</button></a>
+  </p>
+
+  <p>You did it! Wow, what a brainiac.</p>
+  <img src="assets/applause.gif" width="480" alt="Audience applauding" />
+
+  <h3>Obviously there is a prize for winning. The announcer brings over a glowing lightbuld statue as a reward for your brilliance.</h3>
+  <img src="assets/lightbulb.png" width="480" alt="Glowing lightbulb statue" />
+
+   <a href="ticketkiosk.html"><button>Click your heels</button></a>
+  <hr>
+
+  <iframe src="inventory.html" id="inventory" height="100" width="160"></iframe>
+
+<script>
+  // read current ?gp/?hp/?ap
+  const qs = new URLSearchParams(location.search);
+
+  // award once and mark it so it doesn't happen twice
+  if (qs.get('awarded_lightbulb') !== '1') {
+    const gp = +(qs.get('gp')||0) + 1;
+    qs.set('gp', String(gp));
+    qs.set('awarded_lightbulb','1');
+    location.search = qs.toString(); // reload with the updated tokens
+  }
+
+  // keep your tokens when you click
+  document.querySelectorAll('a[href]').forEach(a => { a.href += location.search; });
+
+  // show the same tokens in the inventory iframe
+  const frame = document.getElementById('inventory');
+  if (frame) frame.src += location.search;
+</script>
+
+</body>
+</html>

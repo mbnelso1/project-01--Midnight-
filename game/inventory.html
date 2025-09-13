@@ -1,0 +1,38 @@
+<html>
+<head>
+	<link rel="stylesheet" href="style.css" />
+  <style>
+  body { background-color: rgb(17,17,17); color: white; text-align: center; }
+  table { margin: auto; }
+  td { color: black; }
+</style>
+</head>
+<body>
+  Inventory:
+  <hr>
+  <table>
+    <tr>
+      <th>&#128161;</th>  <!-- lightbulb (Scarecrow prize) -->
+      <th>&#129293;</th>  <!-- white heart (Tin Man prize) -->
+      <th>&#9876;</th>    <!-- sword (Lion prize) -->
+     
+    </tr>
+    <tr>
+      <td id="gp">0</td>
+      <td id="hp">0</td>
+      <td id="ap">0</td>
+     
+    </tr>
+  </table>
+
+<script>
+  // read current ?gp/?hp/?ap and show them
+  const qs = new URLSearchParams(location.search);
+  gp.innerText = qs.get('gp') || '0';
+  hp.innerText = qs.get('hp') || '0';
+  ap.innerText = qs.get('ap') || '0';
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>The Midnight Theater – Finale</title>
+  <link rel="icon" href="assets/clock.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>The Midnight Theater</h1>
+  <hr />
+  <img src="assets/ticketkiosk.png" width="480" alt="Ticket kiosk" />
+  <h4>"Look at what you have learned this midnight"</h4>
+  <h4>"When faced with challenges, you should courage, compassion and genius. " </h4>
+  <h4>"It is never too late to become braver, kinder or smarter... you just have to CHOOSE to change." </h4>
+
+   <img src='assets/final.png' width="480" />
+   <h1>The End </h1>
+  <iframe src="inventory.html" id="inventory" height="100" width="160"></iframe>
+
+<script>
+  // read current ?gp/?hp/?ap
+  const qs = new URLSearchParams(location.search);
+  const gp = +(qs.get('gp') || 0);
+  const hp = +(qs.get('hp') || 0);
+  const ap = +(qs.get('ap') || 0);
+
+  // go back to the hub if you don't have all tokens (keep your tokens)
+  if (gp < 1 || hp < 1 || ap < 1) {
+    location.href = 'ticketkiosk.html?' + qs.toString();
+  } else {
+
+    
+  }
+
+  // keep your tokens when you click (if any links exist here)
+  document.querySelectorAll('a[href]').forEach(a => { a.href += location.search; });
+
+  // show the same tokens in the inventory iframe
+  const frame = document.getElementById('inventory');
+  if (frame) frame.src += location.search;
+</script>
+
+
+</body>
+</html>

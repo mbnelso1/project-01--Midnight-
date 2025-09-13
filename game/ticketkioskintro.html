@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>The Midnight Theater</title>
+  <link rel="icon" href="assets/clock.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>The Midnight Theater</h1>
+  <h3>You find yourself at the ticket kiosk for the Midnight Theater. No one is there but you and the ticket agent.</h3>
+  <hr />
+  <img src="assets/ticketkiosk.png" width="480" alt="Ticket kiosk" />
+  <h4>"What showing?" - ticket agent</h4>
+  <h3>You are confused and do not recognize where you are or what movies are playing.</h3>
+  <h4>"Where am I?" you ask</h4>
+  <h4>"What showing?" - ticket agent</h4>
+  <p>You must choose your movie. Once inside the theater, you can only exit by finding a specific but unknown object, and clicking your heels.</p>
+
+  <ul>
+    <li><a id="The Lion" href="lion.html">The Lion</a></li>
+    <li><a id="The Scarecrow" href="scarecrow.html">The Scarecrow</a></li>
+    <li><a id="The Tin Man" href="tinman.html">The Tin Man</a></li>
+  </ul>
+  <hr />
+
+  <iframe src="inventory.html" id="inventory" height="100" width="160"></iframe>
+
+<script>
+  // read current ?gp/?hp/?ap
+  const qs = new URLSearchParams(location.search);
+
+  // keep your tokens when you click (first chooser)
+  document.querySelectorAll('a[href]').forEach(a => { a.href += location.search; });
+
+  // show the same tokens in the inventory iframe
+  const frame = document.getElementById('inventory');
+  if (frame) frame.src += location.search;
+</script>
+
+</body>
+</html>
